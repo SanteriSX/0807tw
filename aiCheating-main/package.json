@@ -1,0 +1,28 @@
+{
+"name": "ai-cheating",
+"version": "1.0.0",
+"main": "Electron/main.js",
+"type":"module",
+"scripts": {
+  "dev": "vite",             
+  "start": "electron .",
+  "build": "vite build && electron-builder"
+},
+"build": {
+  "appId": "com.kartik.AiCheating",
+  "productName": "AiCheating",
+  "files": [
+    "Electron/**/*",
+    "dist/**/*",
+    "node_modules/**/*"
+  ],
+  "directories": {
+    "buildResources": "Electron/assets" 
+  },
+  "icon": "Electron/assets/icon"
+},
+"devDependencies": {
+  "electron": "^29.0.0",
+  "electron-builder": "^24.0.0"
+}
+}

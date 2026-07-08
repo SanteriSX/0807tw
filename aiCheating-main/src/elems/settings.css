@@ -1,0 +1,80 @@
+.body{
+    width: 100%;
+}
+
+input{
+    border: none;
+    border-radius: 2px;
+    background-color: #4b4b4b;
+    color: rgb(255, 255, 255);
+}
+
+.settings-box {
+  background-color: hsla(0, 0%, 4%, 0.5);
+  margin: 10px;
+  padding: 10px;
+  padding-top: 1px;
+  margin-top: 15px;
+  border-radius: 8px;
+  color: white;
+  opacity: 0.8;
+  font-size: 14px;
+  max-width: 400px;
+}
+
+
+.setting-item {
+    width: 380px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.setting-item input{
+    width: 500px;
+}
+
+.setting-item button{
+    border: none;
+    border-radius: 2px;
+    margin-right: 20px;
+    background-color: #4b4b4b;
+}
+
+.shortcut-item {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+
+.shortcut{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.shortcut input{
+    width: 80px;
+}
+
+.apikey-input{
+    margin-right: 15px;
+}
+
+.apikey-btn{
+    margin-right: -100px;
+}
+
+.setting-item label {
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+
+

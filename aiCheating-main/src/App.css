@@ -1,0 +1,19 @@
+body {
+    background-color: hsla(0, 0%, 18%, 0.7);
+}
+
+html {
+    overflow: auto;
+}
+
+html::-webkit-scrollbar {
+    color: rgb(85, 85, 85);
+    background-color: hsla(0, 0%, 18%, 0.7);
+    width: 5px;
+}
+
+html::-webkit-scrollbar-thumb{
+    background-color: rgb(13, 13, 13);
+    border-radius: 4px;
+    height: 20px;
+} 
