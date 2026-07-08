@@ -1,39 +1,34 @@
-name: Build Windows EXE
-
-on:
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: windows-latest
-
-    steps:
-
-      - name: Download project
-        uses: actions/checkout@v4
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        working-directory: aiCheating-main
-        run: npm install --legacy-peer-deps
-
-      - name: Check installed packages
-        working-directory: aiCheating-main
-        run: npm list react react-dom vite @vitejs/plugin-react
-
-      - name: Build application
-        working-directory: aiCheating-main
-        run: npm run build
-
-      - name: Upload EXE files
-        uses: actions/upload-artifact@v4
-        with:
-          name: aiCheating-build
-          path: |
-            aiCheating-main/dist/**
-            aiCheating-main/release/**
-            aiCheating-main/out/**
+{
+  "name": "ai-cheating",
+  "version": "1.0.0",
+  "main": "Electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "electron .",
+    "build": "vite build && electron-builder"
+  },
+  "build": {
+    "appId": "com.kartik.AiCheating",
+    "productName": "AiCheating",
+    "files": [
+      "Electron/**/*",
+      "dist/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "Electron/assets"
+    },
+    "icon": "Electron/assets/icon"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0",
+    "vite": "^6.4.3",
+    "@vitejs/plugin-react": "^4.3.1"
+  }
+}
