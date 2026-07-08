@@ -8,26 +8,32 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Get source
+
+      - name: Download project
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
         working-directory: aiCheating-main
-        run: npm install
+        run: npm install --legacy-peer-deps
 
-      - name: Build
+      - name: Check installed packages
+        working-directory: aiCheating-main
+        run: npm list react react-dom vite @vitejs/plugin-react
+
+      - name: Build application
         working-directory: aiCheating-main
         run: npm run build
 
-      - name: Upload EXE
+      - name: Upload EXE files
         uses: actions/upload-artifact@v4
         with:
           name: aiCheating-build
           path: |
             aiCheating-main/dist/**
             aiCheating-main/release/**
+            aiCheating-main/out/**
