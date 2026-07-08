@@ -16,16 +16,18 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+     - name: Install dependencies
+  working-directory: aiCheating-main
+  run: npm install
 
-      - name: Build
-        run: npm run build
+- name: Build
+  working-directory: aiCheating-main
+  run: npm run build
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: aiCheating-build
           path: |
-            dist/**
-            release/**
+  aiCheating-main/dist/**
+  aiCheating-main/release/**
