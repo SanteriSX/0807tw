@@ -8,24 +8,25 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Get source
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v5
 
-      - name: Install Node
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
+        working-directory: aiCheating-main
         run: npm install
 
       - name: Build
+        working-directory: aiCheating-main
         run: npm run build
 
-      - name: Upload EXE
-        uses: actions/upload-artifact@v4
+      - name: Upload Installer
+        uses: actions/upload-artifact@v5
         with:
-          name: aiCheating-build
+          name: AiCheating-Windows
           path: |
-            dist/**
-            release/**
+            aiCheating-main/release/**
